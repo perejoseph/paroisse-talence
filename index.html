@@ -28,15 +28,19 @@
 <script src="./support.js"></script>
 <script data-goatcounter="https://joseph.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <style>
-html{scroll-behavior:smooth;scroll-padding-top:120px}
+html{scroll-behavior:smooth;scroll-padding-top:120px;touch-action:manipulation}
 :focus-visible{outline:2px solid #0096BE;outline-offset:3px;border-radius:4px}
 a,button{transition:color .25s ease,background-color .25s ease,border-color .25s ease,box-shadow .3s ease,transform .3s cubic-bezier(.2,.7,.2,1)}
 button:not([style*="position: absolute"]):active{transform:scale(.985)}
 svg line{transition:stroke .6s ease,stroke-width .6s ease}
 @keyframes dcProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @supports (animation-timeline:scroll()){.dc-progress{animation:dcProgress linear both;animation-timeline:scroll(root)}}
-main a[href][style*="border-radius: 12px"]:hover,main button[style*="border-radius: 14px"]:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(19,48,138,.11)}
-@media (hover:hover){
+@media (hover:hover) and (pointer:fine){
+  main a[href][style*="border-radius: 12px"]:hover,main button[style*="border-radius: 14px"]:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(19,48,138,.11)}
+  main a[href][style*="scroll-snap-align"]:hover{border-color:#0096BE !important}
+  main button[style*="border-radius: 14px"]:hover{border-color:#C9D3E6 !important}
+  main button[style*="border-radius: 999px"]:hover{background:#13308A !important;color:#fff !important}
+  a:hover{color:#0096BE}
   button[style*="aspect-ratio: 1 / 1"]:hover{transform:translate(-50%,-50%) scale(1.06) !important;filter:drop-shadow(0 5px 8px rgba(19,48,138,.10))}
   main button[style*="border-radius: 12px"]:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(19,48,138,.08)}
   main button[style*="padding: 18px 6px"]:hover > span:nth-child(2){transform:translateX(5px);color:#0096BE}
@@ -101,7 +105,6 @@ main > section:first-child div[style*="order"] > *:nth-child(3){animation-delay:
 html,body{margin:0;padding:0;background:#fff;color:#13308A;-webkit-font-smoothing:antialiased}
 *{box-sizing:border-box}
 a{color:#13308A;text-decoration:none}
-a:hover{color:#0096BE}
 button{font:inherit}
 </style>
 </helmet>
@@ -174,7 +177,7 @@ button{font:inherit}
                       <span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6B7697">Pour aller plus loin</span>
                       <div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory">
                         <sc-for list="{{ theme.more }}" as="mo" hint-placeholder-count="2">
-                          <a href="{{ mo.href }}" target="_blank" rel="noopener" style="flex:0 0 auto;width:min(240px,78%);scroll-snap-align:start;display:flex;flex-direction:column;gap:4px;padding:14px 16px;border:1px solid #ECEEF3;border-radius:12px;background:#FAFAF8;color:#13308A" style-hover="border-color:#0096BE">
+                          <a href="{{ mo.href }}" target="_blank" rel="noopener" style="flex:0 0 auto;width:min(240px,78%);scroll-snap-align:start;display:flex;flex-direction:column;gap:4px;padding:14px 16px;border:1px solid #ECEEF3;border-radius:12px;background:#FAFAF8;color:#13308A">
                             <span style="font-weight:400;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ mo.color }}">{{ mo.kind }}</span>
                             <span style="font-weight:400;font-size:16px">{{ mo.name }} ↗</span>
                             <span style="font-size:14px;line-height:1.45;color:#3E4F7A">{{ mo.desc }}</span>
@@ -203,7 +206,7 @@ button{font:inherit}
                       <span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6B7697">Pour aller plus loin</span>
                       <div style="display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory">
                         <sc-for list="{{ theme.more }}" as="mo" hint-placeholder-count="2">
-                          <a href="{{ mo.href }}" target="_blank" rel="noopener" style="flex:0 0 auto;width:min(240px,78%);scroll-snap-align:start;display:flex;flex-direction:column;gap:4px;padding:14px 16px;border:1px solid #ECEEF3;border-radius:12px;background:#FAFAF8;color:#13308A" style-hover="border-color:#0096BE">
+                          <a href="{{ mo.href }}" target="_blank" rel="noopener" style="flex:0 0 auto;width:min(240px,78%);scroll-snap-align:start;display:flex;flex-direction:column;gap:4px;padding:14px 16px;border:1px solid #ECEEF3;border-radius:12px;background:#FAFAF8;color:#13308A">
                             <span style="font-weight:400;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:{{ mo.color }}">{{ mo.kind }}</span>
                             <span style="font-weight:400;font-size:16px">{{ mo.name }} ↗</span>
                             <span style="font-size:14px;line-height:1.45;color:#3E4F7A">{{ mo.desc }}</span>
@@ -222,11 +225,11 @@ button{font:inherit}
           <h2 style="margin:0;font-weight:300;font-size:clamp(26px,4vw,36px);line-height:1.15">Continuer le chemin à Talence</h2>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">
-          <button onClick="{{ goVie }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #ECEEF3;border-radius:14px;padding:22px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;color:#13308A" style-hover="border-color:#C9D3E6">
+          <button onClick="{{ goVie }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #ECEEF3;border-radius:14px;padding:22px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;color:#13308A">
             <span style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#E5202A">Église Notre-Dame de Talence<br>Chapelle de la Sainte-Famille</span><span style="font-weight:400;font-size:20px">Vous êtes devant l’église ?</span><span style="font-size:14px;color:#6B7697">Accueil, permanences, confessions</span></span>
             <span style="width:40px;height:40px;border-radius:50%;border:1px solid #DDE2EC;display:flex;align-items:center;justify-content:center;font-size:17px;color:#13308A">→</span>
           </button>
-          <button onClick="{{ goVie }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #ECEEF3;border-radius:14px;padding:22px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;color:#13308A" style-hover="border-color:#C9D3E6">
+          <button onClick="{{ goVie }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #ECEEF3;border-radius:14px;padding:22px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;color:#13308A">
             <span style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#F9A21B">La paroisse</span><span style="font-weight:400;font-size:20px">La vie à Talence</span><span style="font-size:14px;color:#6B7697">Prier, grandir, célébrer, servir</span></span>
             <span style="width:40px;height:40px;border-radius:50%;border:1px solid #DDE2EC;display:flex;align-items:center;justify-content:center;font-size:17px;color:#13308A">→</span>
           </button>
@@ -244,7 +247,7 @@ button{font:inherit}
           <div style="padding:6px 4px 14px;font-weight:400;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#6B7697">Pour commencer : trois temps forts</div>
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px">
             <sc-for list="{{ highlights }}" as="h" hint-placeholder-count="3">
-                  <a href="{{ h.href }}" target="_blank" rel="noopener" style="background:#fff;border:1px solid #ECEEF3;border-top:2px solid {{ h.accent }};border-radius:12px;padding:20px 20px 18px;display:flex;flex-direction:column;gap:10px;color:#13308A;transition:box-shadow .2s" style-hover="box-shadow:0 12px 28px rgba(19,48,138,0.08)">
+                  <a href="{{ h.href }}" target="_blank" rel="noopener" style="background:#fff;border:1px solid #ECEEF3;border-top:2px solid {{ h.accent }};border-radius:12px;padding:20px 20px 18px;display:flex;flex-direction:column;gap:10px;color:#13308A;transition:box-shadow .2s">
                     <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:400;font-size:12px;letter-spacing:0.14em;text-transform:uppercase">
                       <span style="color:{{ h.accentText }}">{{ h.city }}</span>
                       <span style="color:#8A93AE">{{ h.type }}</span>
@@ -257,7 +260,7 @@ button{font:inherit}
             </sc-for>
           </div>
           <div style="display:flex;justify-content:center;padding:30px 0 6px">
-            <button onClick="{{ toggleMore }}" aria-expanded="{{ moreExpanded }}" style="cursor:pointer;padding:12px 24px;border-radius:999px;border:1px solid #13308A;background:#fff;color:#13308A;font-weight:400;font-size:15px" style-hover="background:#13308A;color:#fff">{{ moreLabel }}</button>
+            <button onClick="{{ toggleMore }}" aria-expanded="{{ moreExpanded }}" style="cursor:pointer;padding:12px 24px;border-radius:999px;border:1px solid #13308A;background:#fff;color:#13308A;font-weight:400;font-size:15px">{{ moreLabel }}</button>
           </div>
           <sc-if value="{{ moreOpen }}" hint-placeholder-val="{{ false }}">
             <div class="dc-reveal" style="padding-top:14px;display:flex;flex-direction:column;gap:10px">
@@ -270,7 +273,7 @@ button{font:inherit}
                   <sc-if value="{{ d.open }}" hint-placeholder-val="{{ false }}">
                     <div class="dc-reveal" style="padding:4px 14px 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:14px">
                       <sc-for list="{{ d.items }}" as="s" hint-placeholder-count="3">
-                  <a href="{{ s.href }}" target="_blank" rel="noopener" style="background:#fff;border:1px solid #ECEEF3;border-top:2px solid {{ s.accent }};border-radius:12px;padding:20px 20px 18px;display:flex;flex-direction:column;gap:10px;color:#13308A;transition:box-shadow .2s" style-hover="box-shadow:0 12px 28px rgba(19,48,138,0.08)">
+                  <a href="{{ s.href }}" target="_blank" rel="noopener" style="background:#fff;border:1px solid #ECEEF3;border-top:2px solid {{ s.accent }};border-radius:12px;padding:20px 20px 18px;display:flex;flex-direction:column;gap:10px;color:#13308A;transition:box-shadow .2s">
                     <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;font-weight:400;font-size:12px;letter-spacing:0.14em;text-transform:uppercase">
                       <span style="color:{{ s.accentText }}">{{ s.city }}</span>
                       <span style="color:#8A93AE">{{ s.type }}</span>
@@ -635,7 +638,15 @@ class Component extends DCLogic {
       sign: wide ? (ti === i ? '→' : '') : (ti === i ? '−' : '+'),
       inline: !wide && ti === i,
       expanded: wide ? undefined : String(ti === i), current: wide && ti === i ? 'true' : undefined,
-      onClick: () => this.setState({ theme: (!wide && ti === i) ? -1 : i }),
+      onClick: e => {
+        const opening = !(!wide && ti === i), el = e && e.currentTarget;
+        this.setState({ theme: opening ? i : -1 });
+        // Sur téléphone, le message précédent (au-dessus) se referme : on garde le titre touché sous le bandeau.
+        if (!wide && opening && el) requestAnimationFrame(() => requestAnimationFrame(() => {
+          const header = document.querySelector('header'), top = el.getBoundingClientRect().top - (header ? header.offsetHeight : 0) - 8;
+          if (Math.abs(top) > 4) window.scrollBy({ top, behavior: 'smooth' });
+        }));
+      },
     }));
     const S = 'https://paroisse-talence.fr/';
     const branches = [
