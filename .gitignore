@@ -1,0 +1,6 @@
+# Fichiers de travail : jamais publiés
+uploads/
+archive/
+.claude/
+.DS_Store
+*.dc.html
