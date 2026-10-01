@@ -21,6 +21,7 @@
 <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
 <link rel="canonical" href="https://perejoseph.github.io/paroisse-talence/">
 <link rel="stylesheet" href="./assets/fonts/fonts.css">
+<script>if (navigator.maxTouchPoints > 0 || 'ontouchstart' in window) document.documentElement.classList.add('dc-touch');</script>
 <script>window.__resources={"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"./vendor/react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"./vendor/react-dom.production.min.js"};</script>
 <link rel="preload" href="./assets/fonts/Jost-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script src="./vendor/react.production.min.js"></script>
@@ -31,40 +32,40 @@
 html{scroll-behavior:smooth;scroll-padding-top:120px;touch-action:manipulation}
 :focus-visible{outline:2px solid #0096BE;outline-offset:3px;border-radius:4px}
 a,button{transition:color .25s ease,background-color .25s ease,border-color .25s ease,box-shadow .3s ease,transform .3s cubic-bezier(.2,.7,.2,1)}
-button:not([style*="position: absolute"]):active{transform:scale(.985)}
+html:not(.dc-touch) button:not([style*="position: absolute"]):active{transform:scale(.985)}
 svg line{transition:stroke .6s ease,stroke-width .6s ease}
 @keyframes dcProgress{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @supports (animation-timeline:scroll()){.dc-progress{animation:dcProgress linear both;animation-timeline:scroll(root)}}
 @media (hover:hover) and (pointer:fine){
-  main a[href][style*="border-radius: 12px"]:hover,main button[style*="border-radius: 14px"]:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(19,48,138,.11)}
-  main a[href][style*="scroll-snap-align"]:hover{border-color:#0096BE !important}
-  main button[style*="border-radius: 14px"]:hover{border-color:#C9D3E6 !important}
-  main button[style*="border-radius: 999px"]:hover{background:#13308A !important;color:#fff !important}
-  a:hover{color:#0096BE}
-  button[style*="aspect-ratio: 1 / 1"]:hover{transform:translate(-50%,-50%) scale(1.06) !important;filter:drop-shadow(0 5px 8px rgba(19,48,138,.10))}
-  main button[style*="border-radius: 12px"]:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(19,48,138,.08)}
-  main button[style*="padding: 18px 6px"]:hover > span:nth-child(2){transform:translateX(5px);color:#0096BE}
-  main button[style*="padding: 18px 6px"]:hover > span:nth-child(3){color:#0096BE}
+  html:not(.dc-touch) main a[href][style*="border-radius: 12px"]:hover,html:not(.dc-touch) main button[style*="border-radius: 14px"]:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(19,48,138,.11)}
+  html:not(.dc-touch) main a[href][style*="scroll-snap-align"]:hover{border-color:#0096BE !important}
+  html:not(.dc-touch) main button[style*="border-radius: 14px"]:hover{border-color:#C9D3E6 !important}
+  html:not(.dc-touch) main button[style*="border-radius: 999px"]:hover{background:#13308A !important;color:#fff !important}
+  html:not(.dc-touch) a:hover{color:#0096BE}
+  html:not(.dc-touch) button[style*="aspect-ratio: 1 / 1"]:hover{transform:translate(-50%,-50%) scale(1.06) !important;filter:drop-shadow(0 5px 8px rgba(19,48,138,.10))}
+  html:not(.dc-touch) main button[style*="border-radius: 12px"]:hover{transform:translateY(-2px);box-shadow:0 5px 12px rgba(19,48,138,.08)}
+  html:not(.dc-touch) main button[style*="padding: 18px 6px"]:hover > span:nth-child(2){transform:translateX(5px);color:#0096BE}
+  html:not(.dc-touch) main button[style*="padding: 18px 6px"]:hover > span:nth-child(3){color:#0096BE}
 }
 main button[style*="padding: 18px 6px"] > span{transition:transform .35s cubic-bezier(.2,.7,.2,1),color .3s ease}
-button[style*="aspect-ratio: 1 / 1"]:active{transform:translate(-50%,-50%) scale(1.02) !important}
+html:not(.dc-touch) button[style*="aspect-ratio: 1 / 1"]:active{transform:translate(-50%,-50%) scale(1.02) !important}
 details > summary > span:last-child{display:inline-block;transition:transform .4s cubic-bezier(.2,.7,.2,1)}
 details[open] > summary > span:last-child{transform:rotate(45deg)}
 details[open] > div{animation:dcUnfold .55s cubic-bezier(.2,.7,.2,1) both}
-@keyframes dcUnfold{from{opacity:0;transform:translateY(-8px);clip-path:inset(0 0 100% 0)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
-@keyframes dcFade{from{opacity:0}to{opacity:1}}
-@keyframes dcRise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-@keyframes dcCard{from{opacity:0;transform:translateY(32px) scale(.97)}to{opacity:1;transform:none}}
-@keyframes dcDown{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
-@keyframes dcPop{from{opacity:0;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
+@keyframes dcUnfold{from{opacity:.01;transform:translateY(-8px);clip-path:inset(0 0 100% 0)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
+@keyframes dcFade{from{opacity:.01}to{opacity:1}}
+@keyframes dcRise{from{opacity:.01;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes dcCard{from{opacity:.01;transform:translateY(32px) scale(.97)}to{opacity:1;transform:none}}
+@keyframes dcDown{from{opacity:.01;transform:translateY(-10px)}to{opacity:1;transform:none}}
+@keyframes dcPop{from{opacity:.01;transform:translateY(14px) scale(.96)}to{opacity:1;transform:none}}
 @keyframes dcZoom{from{transform:scale(1.12)}to{transform:scale(1)}}
-@keyframes dcLine{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes dcSwapA{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
-@keyframes dcSwapB{from{opacity:0;transform:translateX(16px)}to{opacity:1;transform:none}}
-@keyframes dcFwdA{from{opacity:0;transform:translateX(34px)}to{opacity:1;transform:none}}
-@keyframes dcFwdB{from{opacity:0;transform:translateX(34px)}to{opacity:1;transform:none}}
-@keyframes dcBackA{from{opacity:0;transform:translateX(-34px)}to{opacity:1;transform:none}}
-@keyframes dcBackB{from{opacity:0;transform:translateX(-34px)}to{opacity:1;transform:none}}
+@keyframes dcLine{from{transform:scaleX(.01)}to{transform:scaleX(1)}}
+@keyframes dcSwapA{from{opacity:.01;transform:translateX(16px)}to{opacity:1;transform:none}}
+@keyframes dcSwapB{from{opacity:.01;transform:translateX(16px)}to{opacity:1;transform:none}}
+@keyframes dcFwdA{from{opacity:.01;transform:translateX(34px)}to{opacity:1;transform:none}}
+@keyframes dcFwdB{from{opacity:.01;transform:translateX(34px)}to{opacity:1;transform:none}}
+@keyframes dcBackA{from{opacity:.01;transform:translateX(-34px)}to{opacity:1;transform:none}}
+@keyframes dcBackB{from{opacity:.01;transform:translateX(-34px)}to{opacity:1;transform:none}}
 .dc-swap-0>*{animation:dcSwapA .65s cubic-bezier(.2,.7,.2,1) both}
 .dc-swap-1>*{animation:dcSwapB .65s cubic-bezier(.2,.7,.2,1) both}
 .dc-swap-0>*:nth-child(2),.dc-swap-1>*:nth-child(2){animation-delay:.05s}
