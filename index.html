@@ -332,7 +332,17 @@ button{font:inherit}
       </section>
 
       <section style="max-width:1120px;margin:0 auto;padding:48px 22px 0">
-        <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A;margin-bottom:16px"><span style="width:28px;height:1px;background:#E5202A"></span><span>Messes · Adoration · Confession</span></div>
+        <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A;margin-bottom:16px"><span style="width:28px;height:1px;background:#E5202A"></span><span>{{ schedTitle }}</span></div>
+        <sc-if value="{{ rosaryOn }}" hint-placeholder-val="{{ true }}">
+        <details style="margin-bottom:22px;max-width:760px;border:1px solid #ECEEF3;border-left:4px solid #2BA66B;border-radius:14px;background:#FAFAF8">
+          <summary style="cursor:pointer;padding:18px 20px;font-size:18px;line-height:1.35;color:#13308A;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px"><span>En octobre, à l’appel du pape, prier Marie pour la paix.</span><span style="color:#2BA66B;font-size:24px;line-height:1">+</span></summary>
+          <div style="display:flex;flex-direction:column;gap:12px;padding:2px 20px 20px">
+            <blockquote style="margin:0;font-family:'Playfair Display', serif;font-style:italic;font-size:clamp(18px,2.6vw,21px);line-height:1.5;color:#13308A">« Comme si je recevais de la Vierge Marie cette demande, j’invite tous les fidèles et toutes les communautés chrétiennes à prier le saint Rosaire au cours du mois d’octobre prochain (…) avec une intention particulière : que cessent les guerres et que la paix s’instaure entre les peuples en conflit. »</blockquote>
+            <span style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#6B7697">Léon XIV · Lourdes, dimanche 27 septembre 2026</span>
+            <p style="margin:2px 0 0;font-size:16px;line-height:1.6;color:#3E4F7A">À la suite de cet appel, venez prier <strong style="font-weight:400;color:#13308A">le chapelet</strong> à Talence. C’est une prière simple avec les « Je vous salue, Marie » : on confie à la Vierge Marie la paix du monde. Les horaires sont indiqués ci-dessous, jour par jour, à la ligne « Chapelet ». Vous pouvez aussi rejoindre la paroisse de Talence sur l’application <a href="https://rosario.app" target="_blank" rel="noopener" style="color:#0096BE">Rosario</a> pour prier avec d’autres paroissiens.</p>
+          </div>
+        </details>
+        </sc-if>
         <div style="display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;max-width:520px">
           <sc-for list="{{ week }}" as="w" hint-placeholder-count="7">
             <button onClick="{{ w.onClick }}" aria-label="{{ w.name }}" aria-pressed="{{ w.pressed }}" style="cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;padding:10px 0 8px;border-radius:12px;border:1px solid {{ w.border }};background:{{ w.bg }};color:{{ w.fg }};transition:all .2s">
@@ -573,6 +583,10 @@ class Component extends DCLogic {
   componentWillUnmount() { if (this.onScroll) window.removeEventListener('scroll', this.onScroll); this.mq.removeEventListener('change', this.onResize); window.removeEventListener('keydown', this.onKey); }
   setTab(i) { this.setState({ tab: i }); window.scrollTo({ top: 0, behavior: 'smooth' }); }
   renderVals() {
+    // L'encadré de l'appel du pape et la phrase du message 03 ne sont affichés que jusqu'au 31 octobre 2026 inclus ; le chapelet reste au calendrier.
+    const ROSARY = new Date() <= new Date(2026, 9, 31, 23, 59, 59);
+    // La veillée du 14 octobre n'est annoncée que jusqu'à cette date incluse (message 03).
+    const VEILLEE = new Date() <= new Date(2026, 9, 14, 23, 59, 59);
     const startMap = { 'Le Pape en France': 0, 'Accueil et vie à Talence': 1 };
     const tab = this.state.tab ?? startMap[this.props.startTab] ?? 0;
     const tabStyle = i => ({ color: tab === i ? '#FFFFFF' : '#B5C1E4', line: tab === i ? '#F9A21B' : 'transparent', current: tab === i ? 'page' : 'false' });
@@ -614,7 +628,7 @@ class Component extends DCLogic {
     const T = [
       { color: '#E5202A', title: 'Revenir à la source', text: 'Le cœur humain a soif de sens, de vérité, d’amour. Ni les biens ni les divertissements ne le comblent : le Christ est la source d’eau vive, et chaque baptisé peut devenir à son tour une source pour les autres.', quote: '« Seul Dieu peut combler le vide intérieur. »', source: 'Homélie, place de la Concorde · 26 septembre', talence: 'L’église Notre-Dame est ouverte chaque jour pour prier, adorer, se confesser.' },
       { color: '#13308A', title: 'Chaque personne est unique', text: 'Personne n’est un numéro. La dignité humaine ne dépend ni des capacités ni de l’efficacité : elle demande du soin à toutes les étapes de la vie, et un regard attentif sur les plus fragiles.', quote: '« Une personne unique et irremplaçable. »', source: 'Concorde · UNESCO · Accueil Notre-Dame', talence: 'La paroisse accompagne les personnes malades, âgées et leurs familles.' },
-      { color: '#0096BE', title: 'La paix est une œuvre active', text: 'La France et l’Europe sont appelées à refuser la fatalité de la guerre, à préférer le dialogue, la diplomatie et le droit international, et à se garder de l’illusion du réarmement.', quote: '« Favoriser la paix est une œuvre active. »', source: 'Élysée · UNESCO · Metz', talence: 'Une veillée de prière et de consolation est proposée le 14 octobre.' },
+      { color: '#0096BE', title: 'La paix est une œuvre active', text: 'La France et l’Europe sont appelées à refuser la fatalité de la guerre, à préférer le dialogue, la diplomatie et le droit international, et à se garder de l’illusion du réarmement.', quote: '« Favoriser la paix est une œuvre active. »', source: 'Élysée · UNESCO · Metz', talence: VEILLEE ? (ROSARY ? 'Chapelet presque chaque jour en octobre, et une veillée de prière et de consolation le 14 octobre.' : 'Une veillée de prière et de consolation est proposée le 14 octobre.') : (ROSARY ? 'Chapelet presque chaque jour en octobre, et des veillées de prière et de consolation à la paroisse (voir l’agenda).' : 'Des veillées de prière et de consolation sont proposées à la paroisse (voir l’agenda).') },
       { color: '#E08A00', title: 'Accueillir l’autre', text: 'Accueillir un migrant ne s’arrête pas au secours : c’est l’intégrer, lui permettre de déployer ses talents et d’entrer dans l’esprit de la maison.', quote: '« Accueillir une personne, c’est l’intégrer comme dans sa propre famille. »', source: 'Maison Bakhita · Metz', talence: 'Nouveau à Talence ou de passage ? L’accueil du presbytère et du pavillon de la Sainte-Famille vous reçoit chaque semaine. Vous êtes bienvenus aussi aux messes !' },
       { color: '#17A9A0', title: 'Les jeunes, Église d’aujourd’hui', text: 'Le Pape a dit sa joie devant l’enthousiasme des jeunes, et les a appelés à construire la paix, fonder une famille, s’engager pour le bien commun, sans peur de l’avenir.', quote: '« Vous êtes l’Église d’aujourd’hui. »', source: 'Stade de France · Concorde · Metz', talence: 'Aumônerie, scoutisme, étudiants et jeunes pros : il y a une place pour chacun.' },
       { color: '#2BA66B', title: 'Éduquer au sens', text: 'À l’heure de l’intelligence artificielle, l’éducation doit aider l’homme à « être » davantage et non seulement à « avoir » plus. Les enfants doivent être protégés dans le monde numérique.', quote: '« Aucune éducation n’est complète si elle ne parle pas de la question du sens. »', source: 'Discours à l’UNESCO · 25 septembre', talence: 'Éveil à la foi, catéchisme et parcours pour adultes sont proposés toute l’année.' },
@@ -669,14 +683,16 @@ class Component extends DCLogic {
     const ND = 'Église Notre-Dame', SF = 'Chapelle Sainte-Famille', HV = ' (hors vacances)';
     const MAPS = { nd: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Église Notre-Dame, Place de l\'Église, 33400 Talence'), sf: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Chapelle de la Sainte-Famille, 10 rue Charles Gounod, 33400 Talence') };
     const M = (time, place) => ({ time, place, map: place.startsWith(SF) ? MAPS.sf : MAPS.nd });
+    // Le chapelet médité du samedi 17 octobre 2026 n'est affiché que jusqu'à cette date incluse, puis disparaît.
+    const SAT17 = new Date() <= new Date(2026, 9, 17, 23, 59, 59);
     const SCHED = [
-      { name: 'Lundi', short: 'Lun' },
+      { name: 'Lundi', short: 'Lun', ros: [M('18h00', ND)] },
       { name: 'Mardi', short: 'Mar', messe: [M('19h00', ND)], ado: [M('18h – 19h', ND)], conf: [M('18h – 19h', ND)] },
-      { name: 'Mercredi', short: 'Mer', messe: [M('7h00', ND + HV), M('19h00', SF)], ado: [M('18h – 19h', SF)], conf: [M('18h – 19h', SF)] },
-      { name: 'Jeudi', short: 'Jeu', messe: [M('9h00', ND + HV), M('19h00', ND)], ado: [M('18h – 19h', ND)], conf: [M('18h – 19h', ND)] },
+      { name: 'Mercredi', short: 'Mer', messe: [M('7h00', ND + HV), M('19h00', SF)], ado: [M('18h – 19h', SF)], conf: [M('18h – 19h', SF)], ros: [M('8h30 – 11h00', ND)] },
+      { name: 'Jeudi', short: 'Jeu', messe: [M('9h00', ND + HV), M('19h00', ND)], ado: [M('18h – 19h', ND)], conf: [M('18h – 19h', ND)], ros: [M('17h00', ND)] },
       { name: 'Vendredi', short: 'Ven', messe: [M('19h00', ND)], ado: [M('8h – 19h', ND)], conf: [M('18h – 19h', ND)] },
-      { name: 'Samedi', short: 'Sam', messe: [M('11h30', ND)], dom: [M('18h00', ND + ', messe anticipée')], ado: [M('10h30 – 11h30', ND)], conf: [M('10h30 – 11h30', ND)] },
-      { name: 'Dimanche', short: 'Dim', dom: [M('9h30', ND + HV), M('10h30', SF), M('11h00', ND), M('19h00', ND + ', messe des jeunes (18-35 ans)')], ado: [M('18h15 – 18h45', ND)], conf: [M('18h15 – 18h45', ND)] },
+      { name: 'Samedi', short: 'Sam', messe: [M('11h30', ND)], dom: [M('18h00', ND + ', messe anticipée')], ado: [M('10h30 – 11h30', ND)], conf: [M('10h30 – 11h30', ND)], ros: SAT17 ? [M('15h30', SF + ', samedi 17 octobre (rosaire médité)')] : [] },
+      { name: 'Dimanche', short: 'Dim', dom: [M('9h30', ND + HV), M('10h30', SF), M('11h00', ND), M('19h00', ND + ', messe des jeunes (18-35 ans)')], ado: [M('18h15 – 18h45', ND)], conf: [M('18h15 – 18h45', ND)], ros: [M('14h00', ND)] },
     ];
     const todayIdx = (new Date().getDay() + 6) % 7;
     const di = this.state.day ?? todayIdx;
@@ -687,6 +703,7 @@ class Component extends DCLogic {
       { label: 'Messe dominicale', color: '#0096BE', items: D.dom || [] },
       { label: 'Adoration', color: '#F9A21B', items: D.ado || [] },
       { label: 'Confession', color: '#E5202A', items: D.conf || [] },
+      { label: 'Chapelet', color: '#2BA66B', items: D.ros || [] },
     ].filter(g => g.items.length);
     return {
       legalOpen: !!this.state.legal, openLegal: () => this.openLegal(), closeLegal: () => this.closeLegal(), stop: e => e.stopPropagation(),
@@ -697,6 +714,7 @@ class Component extends DCLogic {
       goPape: () => this.setTab(0), goVie: () => this.setTab(1),
       highlights, days, moreOpen, moreExpanded: String(moreOpen), moreLabel: moreOpen ? 'Masquer les autres textes' : 'Voir les ' + rest.length + ' autres textes', toggleMore: () => this.setState({ moreOpen: !moreOpen }), speechCount: speeches.length + ' textes officiels, du 25 au 28 septembre 2026',
       themes, theme: { ...T[tI], num: String(tI + 1) },
+      rosaryOn: ROSARY, schedTitle: 'Messes · Adoration · Confession · Chapelet',
       week, dayCls: 'dc-day-' + (this.state.dayDir || 'fwd') + '-' + ((this.state.dayTick || 0) % 2), swapCls: 'dc-swap-' + ((this.state.nodeTick || 0) % 2), daySlots, noSlots: daySlots.length === 0, dayName: D.name, todayTag: di === todayIdx ? '· aujourd’hui' : '',
       n0: mk(0), n1: mk(1), n2: mk(2), n3: mk(3), n4: mk(4), branch: branches[node],
       events: this.state.events || [],
