@@ -31,6 +31,7 @@
 <script data-goatcounter="https://joseph.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 <style>
 html{scroll-behavior:smooth;scroll-padding-top:120px;touch-action:manipulation}
+html,body{overflow-x:clip}
 :focus-visible{outline:2px solid #0096BE;outline-offset:3px;border-radius:4px}
 a,button{transition:color .25s ease,background-color .25s ease,border-color .25s ease,box-shadow .3s ease,transform .3s cubic-bezier(.2,.7,.2,1)}
 html:not(.dc-touch) button:not([style*="position: absolute"]):active{transform:scale(.985)}
@@ -122,9 +123,10 @@ button{font:inherit}
         <img src="./assets/logo-leon-xiv.svg" alt="Léon XIV · France 2026" style="height:40px;width:auto;display:block">
       </a>
     </div>
-    <div style="background:#13308A;margin-top:10px"><nav aria-label="Sections du site" style="max-width:1120px;margin:0 auto;padding:0 10px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))">
-      <button onClick="{{ goPape }}" aria-current="{{ t0.current }}" style="background:none;border:none;cursor:pointer;padding:12px 4px 11px;font-weight:400;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:{{ t0.color }};border-bottom:3px solid {{ t0.line }}">Le Pape en France</button>
-      <button onClick="{{ goVie }}" aria-current="{{ t1.current }}" style="background:none;border:none;cursor:pointer;padding:12px 4px 11px;font-weight:400;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:{{ t1.color }};border-bottom:3px solid {{ t1.line }}">Accueil et vie à Talence</button>
+    <div style="background:#13308A;margin-top:10px"><nav aria-label="Sections du site" style="max-width:1120px;margin:0 auto;padding:0 10px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr))">
+      <button onClick="{{ goPape }}" aria-current="{{ t0.current }}" style="background:none;border:none;cursor:pointer;padding:12px 4px 11px;font-weight:400;font-size:12px;line-height:1.35;letter-spacing:0.1em;text-transform:uppercase;color:{{ t0.color }};border-bottom:3px solid {{ t0.line }}">Le Pape en France</button>
+      <button onClick="{{ goVie }}" aria-current="{{ t1.current }}" style="background:none;border:none;cursor:pointer;padding:12px 4px 11px;font-weight:400;font-size:12px;line-height:1.35;letter-spacing:0.1em;text-transform:uppercase;color:{{ t1.color }};border-bottom:3px solid {{ t1.line }}">Venir à l’église</button>
+      <button onClick="{{ goParoisse }}" aria-current="{{ t2.current }}" style="background:none;border:none;cursor:pointer;padding:12px 4px 11px;font-weight:400;font-size:12px;line-height:1.35;letter-spacing:0.1em;text-transform:uppercase;color:{{ t2.color }};border-bottom:3px solid {{ t2.line }}">Vie de la paroisse</button>
     </nav></div>
   </header>
 
@@ -143,7 +145,15 @@ button{font:inherit}
         </div>
       </section>
 
-      <section style="max-width:760px;margin:0 auto;padding:64px 26px 56px">
+      <section style="max-width:1120px;margin:0 auto;padding:20px 18px 0">
+        <nav aria-label="Aller directement à" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:8px">
+      <button onClick="{{ jLaisse }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #DDE2EC;border-radius:12px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:400;font-size:15px;line-height:1.3;color:#13308A"><span>Ce qu’il nous laisse</span><span aria-hidden="true" style="color:#0096BE;font-size:16px">↓</span></button>
+      <button onClick="{{ jMaintenant }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #DDE2EC;border-radius:12px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:400;font-size:15px;line-height:1.3;color:#13308A"><span>Et maintenant</span><span aria-hidden="true" style="color:#0096BE;font-size:16px">↓</span></button>
+      <button onClick="{{ jDiscours }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #DDE2EC;border-radius:12px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:400;font-size:15px;line-height:1.3;color:#13308A"><span>Les paroles de Léon XIV</span><span aria-hidden="true" style="color:#0096BE;font-size:16px">↓</span></button>
+        </nav>
+      </section>
+
+      <section style="max-width:760px;margin:0 auto;padding:48px 26px 56px">
         <figure style="margin:0;display:flex;flex-direction:column;align-items:center;gap:20px;text-align:center">
           <span style="width:36px;height:1px;background:#F9A21B"></span>
           <blockquote style="margin:0;font-family:'Playfair Display', serif;font-style:italic;font-weight:400;font-size:clamp(26px,4.4vw,40px);line-height:1.3;color:#13308A;text-wrap:balance">« Aimez la vie à chaque instant, et n’ayez pas peur de l’avenir ! »</blockquote>
@@ -151,7 +161,18 @@ button{font:inherit}
         </figure>
       </section>
 
-      <section style="max-width:1120px;margin:0 auto;padding:16px 18px 24px">
+      <section id="video" style="max-width:880px;margin:0 auto;padding:8px 18px 40px">
+        <div style="display:flex;flex-direction:column;gap:10px;padding:0 4px;margin-bottom:18px">
+          <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A"><span style="width:28px;height:1px;background:#E5202A"></span><span>En vidéo</span></div>
+          <h2 style="margin:0;font-weight:300;font-size:clamp(26px,4vw,36px);line-height:1.15">Léon XIV à Paris</h2>
+          <p style="margin:0;font-size:15px;color:#6B7697">Les temps forts de la visite à Paris · une vidéo du diocèse de Paris</p>
+        </div>
+        <div style="position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#1B2550;box-shadow:0 18px 40px rgba(19,48,138,0.10)">
+          <iframe src="https://www.youtube-nocookie.com/embed/V8v8QUTTOX8?rel=0&amp;playsinline=1" title="Léon XIV à Paris – Aftermovie (Diocèse de Paris)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+        </div>
+      </section>
+
+      <section id="laisse" style="max-width:1120px;margin:0 auto;padding:16px 18px 24px">
         <div style="display:flex;flex-direction:column;gap:10px;padding:0 4px;margin-bottom:26px">
           <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A"><span style="width:28px;height:1px;background:#E5202A"></span><span>Ce qu’il nous laisse</span></div>
           <h2 style="margin:0;font-weight:300;font-size:clamp(28px,4.6vw,42px);line-height:1.12">Les apports du Pape, en 7 messages</h2>
@@ -173,7 +194,7 @@ button{font:inherit}
                     <div style="display:flex;flex-direction:column;gap:6px;padding-top:12px;border-top:1px dashed #DDE2EC">
                       <span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#0096BE">À vivre à Talence</span>
                       <span style="font-size:15px;line-height:1.5;color:#3E4F7A">{{ theme.talence }}</span>
-                      <button onClick="{{ goVie }}" style="align-self:flex-start;cursor:pointer;border:none;background:none;padding:6px 0 0;font-weight:400;font-size:14px;color:#0096BE">Découvrir la paroisse →</button>
+                      <button onClick="{{ theme.goTo }}" style="align-self:flex-start;cursor:pointer;border:none;background:none;padding:6px 0 0;font-weight:400;font-size:14px;color:#0096BE">{{ theme.goLabel }}</button>
                     </div>
                     <div style="display:flex;flex-direction:column;gap:8px;padding-top:4px">
                       <span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6B7697">Pour aller plus loin</span>
@@ -202,7 +223,7 @@ button{font:inherit}
               <div style="margin-top:8px;padding-top:18px;border-top:1px solid #ECEEF3;display:flex;flex-direction:column;gap:6px">
                 <span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#0096BE">À vivre à Talence</span>
                 <span style="font-size:16px;line-height:1.55;color:#3E4F7A">{{ theme.talence }}</span>
-                <button onClick="{{ goVie }}" style="align-self:flex-start;cursor:pointer;border:none;background:none;padding:6px 0 0;font-weight:400;font-size:14px;color:#0096BE">Découvrir la paroisse →</button>
+                <button onClick="{{ theme.goTo }}" style="align-self:flex-start;cursor:pointer;border:none;background:none;padding:6px 0 0;font-weight:400;font-size:14px;color:#0096BE">{{ theme.goLabel }}</button>
               </div>
                     <div style="display:flex;flex-direction:column;gap:8px;padding-top:10px">
                       <span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#6B7697">Pour aller plus loin</span>
@@ -221,18 +242,19 @@ button{font:inherit}
         </div>
       </section>
 
-      <section style="max-width:1120px;margin:0 auto;padding:56px 18px 8px">
+
+      <section id="maintenant" style="max-width:1120px;margin:0 auto;padding:56px 18px 8px">
         <div style="display:flex;flex-direction:column;gap:10px;padding:0 4px;margin-bottom:18px">
           <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A"><span style="width:28px;height:1px;background:#E5202A"></span><span>Et maintenant</span></div>
           <h2 style="margin:0;font-weight:300;font-size:clamp(26px,4vw,36px);line-height:1.15">Continuer le chemin à Talence</h2>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px">
           <button onClick="{{ goVie }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #ECEEF3;border-radius:14px;padding:22px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;color:#13308A">
-            <span style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#E5202A">Église Notre-Dame de Talence<br>Chapelle de la Sainte-Famille</span><span style="font-weight:400;font-size:20px">Vous êtes devant l’église ?</span><span style="font-size:14px;color:#6B7697">Accueil, permanences, confessions</span></span>
+            <span style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#E5202A">Église Notre-Dame de Talence<br>Chapelle de la Sainte-Famille</span><span style="font-weight:400;font-size:20px">Vous êtes devant l’église ?</span><span style="font-size:14px;color:#6B7697">Accueil, permanences, confessions, offices</span></span>
             <span style="width:40px;height:40px;border-radius:50%;border:1px solid #DDE2EC;display:flex;align-items:center;justify-content:center;font-size:17px;color:#13308A">→</span>
           </button>
-          <button onClick="{{ goVie }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #ECEEF3;border-radius:14px;padding:22px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;color:#13308A">
-            <span style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#F9A21B">La paroisse</span><span style="font-weight:400;font-size:20px">La vie à Talence</span><span style="font-size:14px;color:#6B7697">Prier, grandir, célébrer, servir</span></span>
+          <button onClick="{{ goParoisse }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #ECEEF3;border-radius:14px;padding:22px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;color:#13308A">
+            <span style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#F9A21B">La paroisse</span><span style="font-weight:400;font-size:20px">La vie à Talence</span><span style="font-size:14px;color:#6B7697">Agenda · prier, grandir, célébrer, servir</span></span>
             <span style="width:40px;height:40px;border-radius:50%;border:1px solid #DDE2EC;display:flex;align-items:center;justify-content:center;font-size:17px;color:#13308A">→</span>
           </button>
           
@@ -300,7 +322,7 @@ button{font:inherit}
   </sc-if>
 
   <sc-if value="{{ isVie }}" hint-placeholder-val="{{ false }}">
-    <main data-screen-label="02 Accueil et vie à Talence">
+    <main data-screen-label="02 Venir à l’église">
       <section style="max-width:1120px;margin:0 auto;padding:36px 18px 0;display:flex;flex-wrap:wrap;align-items:center;gap:28px 48px">
         <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:14px;padding:0 4px">
           <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#0096BE"><span style="width:28px;height:1px;background:#0096BE"></span><span>ÉGLISE OUVERTE, BIENVENUE !</span></div>
@@ -313,7 +335,15 @@ button{font:inherit}
         </figure>
       </section>
 
-      <section style="max-width:1120px;margin:0 auto;padding:48px 22px 0">
+      <section style="max-width:1120px;margin:0 auto;padding:24px 18px 0">
+        <nav aria-label="Aller directement à" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:8px">
+      <button onClick="{{ jRencontrer }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #DDE2EC;border-radius:12px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:400;font-size:15px;line-height:1.3;color:#13308A"><span>Rencontrer quelqu’un</span><span aria-hidden="true" style="color:#0096BE;font-size:16px">↓</span></button>
+      <button onClick="{{ jHoraires }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #DDE2EC;border-radius:12px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:400;font-size:15px;line-height:1.3;color:#13308A"><span>Messes, adoration, confession, chapelet</span><span aria-hidden="true" style="color:#0096BE;font-size:16px">↓</span></button>
+      <button onClick="{{ jPremiere }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #DDE2EC;border-radius:12px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:400;font-size:15px;line-height:1.3;color:#13308A"><span>Première fois ?</span><span aria-hidden="true" style="color:#0096BE;font-size:16px">↓</span></button>
+        </nav>
+      </section>
+
+      <section id="rencontrer" style="max-width:1120px;margin:0 auto;padding:48px 22px 0">
         <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A;margin-bottom:8px"><span style="width:28px;height:1px;background:#E5202A"></span><span>RENCONTRER QUELQU’UN</span></div>
         <div style="display:flex;flex-direction:column">
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:4px 24px;padding:18px 0;border-bottom:1px solid #ECEEF3">
@@ -331,7 +361,7 @@ button{font:inherit}
         </div>
       </section>
 
-      <section style="max-width:1120px;margin:0 auto;padding:48px 22px 0">
+      <section id="horaires" style="max-width:1120px;margin:0 auto;padding:48px 22px 0">
         <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A;margin-bottom:16px"><span style="width:28px;height:1px;background:#E5202A"></span><span>{{ schedTitle }}</span></div>
         <sc-if value="{{ rosaryOn }}" hint-placeholder-val="{{ true }}">
         <details style="margin-bottom:22px;max-width:760px;border:1px solid #ECEEF3;border-left:4px solid #2BA66B;border-radius:14px;background:#FAFAF8">
@@ -375,23 +405,188 @@ button{font:inherit}
         <p style="margin:12px 0 0;font-size:13px;line-height:1.5;color:#8A93AE">Plus d’infos : <a href="https://paroisse-talence.fr/la-paroisse/horaires-messes-confessions/" target="_blank" rel="noopener" style="color: rgb(0, 150, 190);">voir le site de la paroisse</a>.</p>
       </section>
 
-      <section style="max-width:1120px;margin:0 auto;padding:48px 22px 0">
+      <section id="premiere-fois" style="max-width:1120px;margin:0 auto;padding:48px 22px 0">
         <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A;margin-bottom:10px"><span style="width:28px;height:1px;background:#E5202A"></span><span>Première fois ?</span></div>
-        <h2 style="margin:0 0 8px;font-weight:300;font-size:clamp(26px,4.4vw,36px);line-height:1.15">Comment se confesser ?</h2>
-        <p style="margin:0 0 16px;max-width:640px;font-size:16px;line-height:1.6;color:#3E4F7A">La confession est le sacrement par lequel Dieu pardonne nos péchés et nous relève. Pas d’inquiétude : le prêtre vous guidera.</p>
-        <details style="max-width:720px;border-top:1px solid #ECEEF3;border-bottom:1px solid #ECEEF3">
-        <summary style="cursor:pointer;padding:14px 0;font-size:16px;color:#13308A;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px"><span>Les 4 étapes de la confession</span><span style="color:#E5202A;font-size:20px;line-height:1">+</span></summary>
+        <h2 style="margin:0 0 8px;font-weight:300;font-size:clamp(26px,4.4vw,36px);line-height:1.15">Quelques repères pour commencer</h2>
+        <p style="margin:0 0 16px;max-width:640px;font-size:16px;line-height:1.6;color:#3E4F7A">Vous n’êtes pas venu depuis longtemps, ou c’est la première fois ? Voici de quoi faire les premiers pas, simplement.</p>
+        <div style="max-width:720px">
+        <details style="border-top:1px solid #ECEEF3;border-bottom:1px solid #ECEEF3">
+          <summary style="cursor:pointer;padding:16px 0;font-size:17px;line-height:1.35;color:#13308A;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px"><span>Entrer dans une église</span><span style="color:#E5202A;font-size:20px;line-height:1">+</span></summary>
+          <div style="display:flex;flex-direction:column;gap:12px;padding:2px 0 22px">
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">L’église est ouverte à tous, croyants ou non. Vous pouvez entrer librement.</p>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">Asseyez-vous où vous voulez. Vous pouvez rester en silence, regarder, respirer : c’est déjà une manière d’être là.</p>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">Vous pouvez allumer un cierge : un geste simple pour confier une intention, une personne, un souci.</p>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">Près de l’autel, une petite lampe rouge allumée signale le tabernacle, où Jésus est présent dans le pain consacré.</p>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">Certains trempent les doigts dans l’eau bénite à l’entrée et font le signe de croix : rien n’est obligatoire. Et si vous avez une question, l’accueil du presbytère est là pour vous.</p>
+          </div>
+        </details>
+        <details style="border-bottom:1px solid #ECEEF3">
+          <summary style="cursor:pointer;padding:16px 0;font-size:17px;line-height:1.35;color:#13308A;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px"><span>Prier, comment faire ?</span><span style="color:#E5202A;font-size:20px;line-height:1">+</span></summary>
+          <div style="display:flex;flex-direction:column;gap:12px;padding:2px 0 22px">
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">Prier, c’est parler à Dieu, et le laisser nous parler. Il n’y a pas de mauvaise façon de commencer.</p>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">Prenez quelques minutes au calme, dans l’église ou chez vous. Dites simplement ce que vous avez sur le cœur, avec vos mots.</p>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">Trois mots peuvent aider : <strong style="font-weight:400;color:#13308A">merci</strong> pour ce qui est beau, <strong style="font-weight:400;color:#13308A">pardon</strong> pour ce qui pèse, <strong style="font-weight:400;color:#13308A">s’il te plaît</strong> pour ce que vous espérez.</p>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">Puis restez un moment en silence : Dieu parle souvent dans le calme, et à travers un texte de la <a href="https://www.aelf.org" target="_blank" rel="noopener" style="color:#0096BE">Bible</a>. Vous pouvez aussi vous appuyer sur une prière déjà écrite, comme celles qui suivent.</p>
+            <p style="margin:0;font-size:15px;line-height:1.6;color:#3E4F7A">Pour aller plus loin : <a href="https://prieraujourdhui.com" target="_blank" rel="noopener" style="color:#0096BE">prieraujourdhui.com ↗</a>, une prière guidée chaque jour.</p>
+          </div>
+        </details>
+        <details style="border-bottom:1px solid #ECEEF3">
+          <summary style="cursor:pointer;padding:16px 0;font-size:17px;line-height:1.35;color:#13308A;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px"><span>Trois prières</span><span style="color:#E5202A;font-size:20px;line-height:1">+</span></summary>
+          <div style="display:flex;flex-direction:column;gap:12px;padding:2px 0 22px">
+            <details style="border-radius:12px;background:#FAFAF8;border:1px solid #ECEEF3">
+              <summary style="cursor:pointer;padding:14px 16px;font-size:16px;line-height:1.35;color:#13308A;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px"><span>Notre Père</span><span style="color:#E5202A;font-size:20px;line-height:1">+</span></summary>
+              <div style="display:flex;flex-direction:column;gap:6px;padding:0 16px 16px">
+              <span style="font-size:14px;line-height:1.5;color:#6B7697">La prière que Jésus lui-même a apprise à ses disciples.</span>
+              <p style="margin:4px 0 0;font-family:'Playfair Display', serif;font-style:italic;font-size:18px;line-height:1.6;color:#13308A;white-space:pre-line">Notre Père, qui es aux cieux,
+que ton nom soit sanctifié,
+que ton règne vienne,
+que ta volonté soit faite sur la terre comme au ciel.
+Donne-nous aujourd’hui notre pain de ce jour.
+Pardonne-nous nos offenses,
+comme nous pardonnons aussi à ceux qui nous ont offensés.
+Et ne nous laisse pas entrer en tentation,
+mais délivre-nous du Mal.
+Amen.</p>
+              </div>
+            </details>
+            <details style="border-radius:12px;background:#FAFAF8;border:1px solid #ECEEF3">
+              <summary style="cursor:pointer;padding:14px 16px;font-size:16px;line-height:1.35;color:#13308A;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px"><span>Je vous salue, Marie</span><span style="color:#E5202A;font-size:20px;line-height:1">+</span></summary>
+              <div style="display:flex;flex-direction:column;gap:6px;padding:0 16px 16px">
+              <span style="font-size:14px;line-height:1.5;color:#6B7697">La prière que l’on récite en disant le chapelet.</span>
+              <p style="margin:4px 0 0;font-family:'Playfair Display', serif;font-style:italic;font-size:18px;line-height:1.6;color:#13308A;white-space:pre-line">Je vous salue, Marie, pleine de grâce ;
+le Seigneur est avec vous.
+Vous êtes bénie entre toutes les femmes,
+et Jésus, le fruit de vos entrailles, est béni.
+Sainte Marie, Mère de Dieu,
+priez pour nous, pauvres pécheurs,
+maintenant et à l’heure de notre mort.
+Amen.</p>
+              </div>
+            </details>
+            <details style="border-radius:12px;background:#FAFAF8;border:1px solid #ECEEF3">
+              <summary style="cursor:pointer;padding:14px 16px;font-size:16px;line-height:1.35;color:#13308A;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px"><span>Prière à Notre-Dame des 7 douleurs</span><span style="color:#E5202A;font-size:20px;line-height:1">+</span></summary>
+              <div style="display:flex;flex-direction:column;gap:6px;padding:0 16px 16px">
+              <span style="font-size:14px;line-height:1.5;color:#6B7697">Notre-Dame des 7 douleurs est priée à Talence depuis plusieurs siècles, dans le sanctuaire de l’église Notre-Dame.</span>
+              <p style="margin:4px 0 0;font-family:'Playfair Display', serif;font-style:italic;font-size:18px;line-height:1.6;color:#13308A;white-space:pre-line">Ô Marie, Mère de Jésus et notre mère,
+qui, au Calvaire, avez partagé si courageusement
+la Passion de notre Sauveur,
+ô Marie, qui en votre Sanctuaire de Talence,
+savez si bien réconforter les âmes douloureuses,
+accueillez maternellement vos enfants
+qui viennent vous implorer.
+
+Mère du bon conseil, guidez-nous
+dans nos résolutions et nos efforts.
+Mère sans tache, inspirez-nous l’horreur du péché.
+Étoile du matin, fortifiez notre confiance.
+Salut des infirmes, soutenez notre faiblesse.
+Vierge fidèle, apprenez-nous la vraie charité.
+Consolatrice des affligés, aidez-nous
+à offrir généreusement toutes nos épreuves.
+Secours des chrétiens, faites de tous vos enfants
+une grande famille fraternelle et accueillante.
+Reine des apôtres, donnez-nous une âme missionnaire.
+Reine des martyrs, soutenez ceux qui donnent leur vie
+pour le règne de Dieu.
+Reine de la paix, donnez la paix à notre monde.
+Reine de Talence, priez pour nous.
+
+Ainsi soit-il.</p>
+              <a href="https://paroisse-talence.fr/la-paroisse/le-sanctuaire/" target="_blank" rel="noopener" style="margin-top:4px;font-size:14px;color:#0096BE">Découvrir le sanctuaire ↗</a>
+              </div>
+            </details>
+          </div>
+        </details>
+        <details style="border-bottom:1px solid #ECEEF3">
+          <summary style="cursor:pointer;padding:16px 0;font-size:17px;line-height:1.35;color:#13308A;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px"><span>Venir à la messe</span><span style="color:#E5202A;font-size:20px;line-height:1">+</span></summary>
+          <div style="display:flex;flex-direction:column;gap:12px;padding:2px 0 22px">
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">La messe est le grand rendez-vous des chrétiens : on y écoute la Parole de Dieu et on célèbre le dernier repas de Jésus. Elle dure environ une heure le dimanche.</p>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">Venez comme vous êtes et asseyez-vous où vous voulez. Il suffit de suivre l’assemblée : on se lève, on s’assoit… Personne ne vous en voudra d’hésiter.</p>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">Au moment de la communion, seules les personnes baptisées et préparées reçoivent l’hostie. Vous pouvez rester à votre place, ou vous avancer les bras croisés sur la poitrine : le prêtre vous donnera une bénédiction.</p>
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">À la fin, n’hésitez pas à dire bonjour : vous êtes le bienvenu.</p>
+            <button onClick="{{ jHoraires }}" style="align-self:flex-start;cursor:pointer;border:none;background:none;padding:2px 0 0;font-weight:400;font-size:15px;color:#0096BE">Voir les horaires des messes ↑</button>
+          </div>
+        </details>
+        <details style="border-bottom:1px solid #ECEEF3">
+          <summary style="cursor:pointer;padding:16px 0;font-size:17px;line-height:1.35;color:#13308A;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px"><span>Se confesser : comment faire ?</span><span style="color:#E5202A;font-size:20px;line-height:1">+</span></summary>
+          <div style="display:flex;flex-direction:column;gap:12px;padding:2px 0 22px">
+            <p style="margin:0;font-size:16px;line-height:1.65;color:#3E4F7A">La confession est le sacrement par lequel Dieu pardonne nos péchés et nous relève. Pas d’inquiétude : le prêtre vous guidera. Voici les 4 étapes de la réconciliation.</p>
         <div style="display:flex;flex-direction:column;border-top:1px solid #ECEEF3">
             <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #ECEEF3"><span style="font-weight:400;font-size:15px;color:#E5202A">1</span><span style="display:flex;flex-direction:column;gap:3px"><span style="font-weight:400;font-size:17px">Je salue le prêtre</span><span style="font-size:15px;line-height:1.55;color:#3E4F7A">« Bénissez-moi, mon Père, parce que j’ai péché. »</span></span></div>
             <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #ECEEF3"><span style="font-weight:400;font-size:15px;color:#E5202A">2</span><span style="display:flex;flex-direction:column;gap:3px"><span style="font-weight:400;font-size:17px">Je demande pardon</span><span style="font-size:15px;line-height:1.55;color:#3E4F7A">Avec simplicité et confiance, je nomme mes péchés, sans entrer dans les détails.</span></span></div>
             <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid #ECEEF3"><span style="font-weight:400;font-size:15px;color:#E5202A">3</span><span style="display:flex;flex-direction:column;gap:3px"><span style="font-weight:400;font-size:17px">Je reçois une pénitence et exprime mon regret (acte de contrition)</span><span style="font-size:15px;line-height:1.55;color:#3E4F7A">Une prière, un petit effort : un geste concret pour repartir.</span></span></div>
             <div style="display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0"><span style="font-weight:400;font-size:15px;color:#E5202A">4</span><span style="display:flex;flex-direction:column;gap:3px"><span style="font-weight:400;font-size:17px">Je suis pardonné</span><span style="font-size:15px;line-height:1.55;color:#3E4F7A">Le prêtre donne l’absolution : Dieu pardonne tous mes péchés.</span></span></div>
         </div>
+            <a href="./assets/guide-confession.pdf" download="Guide confession - Paroisse de Talence.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;font-size:15px;color:#0096BE">Télécharger le petit guide complet (PDF) ↓</a>
+            <button onClick="{{ jHoraires }}" style="align-self:flex-start;cursor:pointer;border:none;background:none;padding:0;font-weight:400;font-size:15px;color:#0096BE">Voir les horaires des confessions ↑</button>
+          </div>
         </details>
-        <a href="./assets/guide-confession.pdf" download="Guide confession - Paroisse de Talence.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:15px;color:#0096BE">Télécharger le petit guide complet (PDF) ↓</a>
+        </div>
       </section>
 
-      <section style="max-width:1120px;margin:0 auto;padding:64px 18px 0">
+      <section style="max-width:1120px;margin:0 auto;padding:56px 18px 0">
+        <button onClick="{{ goParoisse }}" style="width:100%;cursor:pointer;text-align:left;background:#fff;border:1px solid #ECEEF3;border-radius:14px;padding:22px 22px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:16px;color:#13308A">
+          <span style="display:flex;flex-direction:column;gap:4px"><span style="font-weight:400;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#F9A21B">Et ensuite</span><span style="font-weight:400;font-size:20px">La vie de la paroisse</span><span style="font-size:14px;color:#6B7697">Agenda · prier, grandir, célébrer, servir</span></span>
+          <span style="width:40px;height:40px;border-radius:50%;border:1px solid #DDE2EC;display:flex;align-items:center;justify-content:center;font-size:17px;color:#13308A">→</span>
+        </button>
+      </section>
+
+
+    </main>
+  </sc-if>
+
+  <sc-if value="{{ isParoisse }}" hint-placeholder-val="{{ false }}">
+    <main data-screen-label="03 Vie de la paroisse">
+      <section style="max-width:1120px;margin:0 auto;padding:36px 18px 0;display:flex;flex-wrap:wrap;align-items:center;gap:28px 48px">
+        <div style="flex:1 1 380px;display:flex;flex-direction:column;gap:14px;padding:0 4px">
+          <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#F9A21B"><span style="width:28px;height:1px;background:#F9A21B"></span><span>LA PAROISSE DE TALENCE</span></div>
+          <h1 style="margin:0;font-weight:300;font-size:clamp(34px,6vw,56px);line-height:1.08;text-wrap:balance">Une communauté où chacun a sa place</h1>
+          <p style="margin:0;max-width:560px;font-size:17px;line-height:1.6;color:#3E4F7A">Prier, grandir dans la foi, célébrer, servir, partager un repas : voici les prochains rendez-vous et les chemins pour trouver votre place.</p>
+        </div>
+        <figure style="flex:1 1 100%;margin:0">
+          <img src="./assets/vie-paroisse.jpg" loading="lazy" decoding="async" width="1280" height="507" alt="Paroissiens de Talence réunis autour d’une table, en plein air" style="width:100%;height:auto;display:block;border-radius:16px">
+        </figure>
+      </section>
+
+      <section style="max-width:1120px;margin:0 auto;padding:24px 18px 0">
+        <nav aria-label="Aller directement à" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:8px">
+      <button onClick="{{ jAgenda }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #DDE2EC;border-radius:12px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:400;font-size:15px;line-height:1.3;color:#13308A"><span>Agenda</span><span aria-hidden="true" style="color:#0096BE;font-size:16px">↓</span></button>
+      <button onClick="{{ jChemins }}" style="cursor:pointer;text-align:left;background:#fff;border:1px solid #DDE2EC;border-radius:12px;padding:13px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px;font-weight:400;font-size:15px;line-height:1.3;color:#13308A"><span>La vie à Talence</span><span aria-hidden="true" style="color:#0096BE;font-size:16px">↓</span></button>
+        </nav>
+      </section>
+
+      <section id="agenda" style="max-width:1120px;margin:0 auto;padding:48px 22px 0">
+        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A"><span style="width:28px;height:1px;background:#E5202A"></span><span>Agenda</span></div>
+            <h2 style="margin:0;font-weight:300;font-size:clamp(28px,4.6vw,42px);line-height:1.12">Prochainement</h2>
+          </div>
+          <a href="https://paroisse-talence.fr/agenda" target="_blank" rel="noopener" style="font-weight:400;font-size:14px;color:#0096BE">Tout l’agenda →</a>
+        </div>
+        <div style="margin-top:18px;display:flex;flex-direction:column;border-top:1px solid #ECEEF3">
+          <sc-if value="{{ eventsLoading }}" hint-placeholder-val="{{ true }}">
+            <p style="margin:0;padding:18px 0;border-bottom:1px solid #ECEEF3;font-size:15px;color:#8A93AE">Chargement de l’agenda…</p>
+          </sc-if>
+          <sc-if value="{{ eventsEmpty }}" hint-placeholder-val="{{ false }}">
+            <a href="https://paroisse-talence.fr/agenda" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid #ECEEF3;font-size:16px;color:#13308A"><span>Voir tous les rendez-vous de la paroisse</span><span style="color:#8A93AE">→</span></a>
+          </sc-if>
+          <sc-for list="{{ events }}" as="e" hint-placeholder-count="0">
+            <a href="{{ e.href }}" target="_blank" rel="noopener" style="display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid #ECEEF3;color:#13308A">
+              <div style="display:flex;flex-direction:column;align-items:center;line-height:1">
+                <span style="font-weight:300;font-size:30px">{{ e.day }}</span>
+                <span style="font-weight:400;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#E5202A;margin-top:4px">{{ e.month }}</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:3px">
+                <span style="font-weight:400;font-size:17px;line-height:1.3">{{ e.title }}</span>
+                <span style="font-size:14px;color:#6B7697">{{ e.place }}</span>
+              </div>
+              <span style="color:#8A93AE;font-size:16px">→</span>
+            </a>
+          </sc-for>
+        </div>
+      </section>
+
+      <section id="chemins" style="max-width:1120px;margin:0 auto;padding:64px 18px 0">
         <div style="display:flex;flex-direction:column;gap:10px;padding:0 4px">
           <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A"><span style="width:28px;height:1px;background:#E5202A"></span><span>La vie à Talence</span></div>
           <h2 style="margin:0;font-weight:300;font-size:clamp(28px,4.6vw,42px);line-height:1.12">Une paroisse, cinq chemins</h2>
@@ -426,37 +621,6 @@ button{font:inherit}
               </sc-for>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section style="max-width:1120px;margin:0 auto;padding:64px 22px 0">
-        <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap">
-          <div style="display:flex;flex-direction:column;gap:10px">
-            <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A"><span style="width:28px;height:1px;background:#E5202A"></span><span>Agenda</span></div>
-            <h2 style="margin:0;font-weight:300;font-size:clamp(28px,4.6vw,42px);line-height:1.12">Prochainement</h2>
-          </div>
-          <a href="https://paroisse-talence.fr/agenda" target="_blank" rel="noopener" style="font-weight:400;font-size:14px;color:#0096BE">Tout l’agenda →</a>
-        </div>
-        <div style="margin-top:18px;display:flex;flex-direction:column;border-top:1px solid #ECEEF3">
-          <sc-if value="{{ eventsLoading }}" hint-placeholder-val="{{ true }}">
-            <p style="margin:0;padding:18px 0;border-bottom:1px solid #ECEEF3;font-size:15px;color:#8A93AE">Chargement de l’agenda…</p>
-          </sc-if>
-          <sc-if value="{{ eventsEmpty }}" hint-placeholder-val="{{ false }}">
-            <a href="https://paroisse-talence.fr/agenda" target="_blank" rel="noopener" style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid #ECEEF3;font-size:16px;color:#13308A"><span>Voir tous les rendez-vous de la paroisse</span><span style="color:#8A93AE">→</span></a>
-          </sc-if>
-          <sc-for list="{{ events }}" as="e" hint-placeholder-count="0">
-            <a href="{{ e.href }}" target="_blank" rel="noopener" style="display:grid;grid-template-columns:58px minmax(0,1fr) auto;gap:16px;align-items:center;padding:18px 0;border-bottom:1px solid #ECEEF3;color:#13308A">
-              <div style="display:flex;flex-direction:column;align-items:center;line-height:1">
-                <span style="font-weight:300;font-size:30px">{{ e.day }}</span>
-                <span style="font-weight:400;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:#E5202A;margin-top:4px">{{ e.month }}</span>
-              </div>
-              <div style="display:flex;flex-direction:column;gap:3px">
-                <span style="font-weight:400;font-size:17px;line-height:1.3">{{ e.title }}</span>
-                <span style="font-size:14px;color:#6B7697">{{ e.place }}</span>
-              </div>
-              <span style="color:#8A93AE;font-size:16px">→</span>
-            </a>
-          </sc-for>
         </div>
       </section>
 
@@ -516,14 +680,14 @@ button{font:inherit}
         <div style="display:flex;flex-direction:column;gap:6px"><h3 style="margin:0;font-weight:400;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#E5202A">Propriété intellectuelle</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#3E4F7A">L’ensemble des contenus de ce site (textes, photos, documents téléchargeables) est protégé par le droit d’auteur. Toute reproduction sans autorisation préalable est interdite. Les textes et logos relatifs au voyage du Pape restent la propriété de leurs auteurs.</p><p style="margin:0;font-size:15px;line-height:1.6;color:#3E4F7A">Photos : Paroisse de Talence.</p></div>
         <div style="display:flex;flex-direction:column;gap:6px"><h3 style="margin:0;font-weight:400;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#E5202A">Liens externes</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#3E4F7A">Ce site contient des liens vers d’autres sites (pape-france.fr, Google Maps, WhatsApp, Instagram…). La paroisse n’est pas responsable de leur contenu.</p></div>
         <div style="display:flex;flex-direction:column;gap:6px"><h3 style="margin:0;font-weight:400;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#E5202A">Données personnelles</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#3E4F7A">Ce site ne comporte ni formulaire ni espace personnel, et la paroisse n’y collecte aucune donnée personnelle. Comme tout hébergeur, GitHub peut enregistrer des données techniques de connexion (adresse IP, date de visite) pour assurer la sécurité du service.</p><p style="margin:0;font-size:15px;line-height:1.6;color:#3E4F7A">Conformément au Règlement général sur la protection des données (RGPD) et à la loi Informatique et Libertés, vous disposez d’un droit d’accès, de rectification, d’opposition et de suppression des données vous concernant. Pour l’exercer : <a href="mailto:contact@paroisse-talence.fr" style="color:#0096BE">contact@paroisse-talence.fr</a> ou Paroisse de Talence, Place de l’Église, 33400 Talence. Vous pouvez aussi adresser une réclamation à la <a href="https://www.cnil.fr" target="_blank" rel="noopener" style="color:#0096BE">CNIL</a>.</p></div>
-        <div style="display:flex;flex-direction:column;gap:6px"><h3 style="margin:0;font-weight:400;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#E5202A">Cookies</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#3E4F7A">Ce site ne dépose aucun cookie et n’utilise aucun traceur publicitaire. Sa fréquentation est mesurée de façon anonyme et sans cookie par <a href="https://www.goatcounter.com" target="_blank" rel="noopener" style="color:#0096BE">GoatCounter</a> (nombre de visites, pages vues, pays, type d’appareil) : aucune donnée ne permet d’identifier un visiteur. Il n’y a donc pas de bandeau de consentement à valider.</p></div>
+        <div style="display:flex;flex-direction:column;gap:6px"><h3 style="margin:0;font-weight:400;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#E5202A">Cookies</h3><p style="margin:0;font-size:15px;line-height:1.6;color:#3E4F7A">Ce site ne dépose aucun cookie et n’utilise aucun traceur publicitaire. Sa fréquentation est mesurée de façon anonyme et sans cookie par <a href="https://www.goatcounter.com" target="_blank" rel="noopener" style="color:#0096BE">GoatCounter</a> (nombre de visites, pages vues, pays, type d’appareil) : aucune donnée ne permet d’identifier un visiteur. Il n’y a donc pas de bandeau de consentement à valider.</p><p style="margin:0;font-size:15px;line-height:1.6;color:#3E4F7A">La vidéo de la page « Le Pape en France » est hébergée par YouTube, en mode « confidentialité renforcée » : YouTube ne dépose de cookie que si vous lancez la lecture.</p></div>
       </div>
     </div>
   </sc-if>
 
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Le Pape en France&quot;,&quot;Accueil et vie à Talence&quot;],&quot;default&quot;:&quot;Le Pape en France&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;startTab&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Le Pape en France&quot;,&quot;Venir à l’église&quot;,&quot;Vie de la paroisse&quot;],&quot;default&quot;:&quot;Le Pape en France&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   state = { tab: null, node: 0, theme: 0, wide: window.matchMedia('(min-width: 860px)').matches };
   componentDidMount() {
@@ -587,8 +751,12 @@ class Component extends DCLogic {
     const ROSARY = new Date() <= new Date(2026, 9, 31, 23, 59, 59);
     // La veillée du 14 octobre n'est annoncée que jusqu'à cette date incluse (message 03).
     const VEILLEE = new Date() <= new Date(2026, 9, 14, 23, 59, 59);
-    const startMap = { 'Le Pape en France': 0, 'Accueil et vie à Talence': 1 };
+    // Ensuite, la veillée suivante (18 novembre) est annoncée jusqu'à sa date incluse.
+    const VEILLEE2 = new Date() <= new Date(2026, 10, 18, 23, 59, 59);
+    const startMap = { 'Le Pape en France': 0, 'Venir à l’église': 1, 'Vie de la paroisse': 2 };
     const tab = this.state.tab ?? startMap[this.props.startTab] ?? 0;
+    // Boutons d'accès rapide : défilement jusqu'à la section, juste sous le bandeau.
+    const jump = id => () => { const el = document.getElementById(id), h = document.querySelector('header'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - (h ? h.offsetHeight : 0) - 12, behavior: 'smooth' }); };
     const tabStyle = i => ({ color: tab === i ? '#FFFFFF' : '#B5C1E4', line: tab === i ? '#F9A21B' : 'transparent', current: tab === i ? 'page' : 'false' });
     const A = 'https://www.pape-france.fr/actualites/', J = 'https://www.pape-france.fr/le-voyage/jour-apres-jour/';
     const speeches = [
@@ -628,7 +796,7 @@ class Component extends DCLogic {
     const T = [
       { color: '#E5202A', title: 'Revenir à la source', text: 'Le cœur humain a soif de sens, de vérité, d’amour. Ni les biens ni les divertissements ne le comblent : le Christ est la source d’eau vive, et chaque baptisé peut devenir à son tour une source pour les autres.', quote: '« Seul Dieu peut combler le vide intérieur. »', source: 'Homélie, place de la Concorde · 26 septembre', talence: 'L’église Notre-Dame est ouverte chaque jour pour prier, adorer, se confesser.' },
       { color: '#13308A', title: 'Chaque personne est unique', text: 'Personne n’est un numéro. La dignité humaine ne dépend ni des capacités ni de l’efficacité : elle demande du soin à toutes les étapes de la vie, et un regard attentif sur les plus fragiles.', quote: '« Une personne unique et irremplaçable. »', source: 'Concorde · UNESCO · Accueil Notre-Dame', talence: 'La paroisse accompagne les personnes malades, âgées et leurs familles.' },
-      { color: '#0096BE', title: 'La paix est une œuvre active', text: 'La France et l’Europe sont appelées à refuser la fatalité de la guerre, à préférer le dialogue, la diplomatie et le droit international, et à se garder de l’illusion du réarmement.', quote: '« Favoriser la paix est une œuvre active. »', source: 'Élysée · UNESCO · Metz', talence: VEILLEE ? (ROSARY ? 'Chapelet presque chaque jour en octobre, et une veillée de prière et de consolation le 14 octobre.' : 'Une veillée de prière et de consolation est proposée le 14 octobre.') : (ROSARY ? 'Chapelet presque chaque jour en octobre, et des veillées de prière et de consolation à la paroisse (voir l’agenda).' : 'Des veillées de prière et de consolation sont proposées à la paroisse (voir l’agenda).') },
+      { color: '#0096BE', title: 'La paix est une œuvre active', text: 'La France et l’Europe sont appelées à refuser la fatalité de la guerre, à préférer le dialogue, la diplomatie et le droit international, et à se garder de l’illusion du réarmement.', quote: '« Favoriser la paix est une œuvre active. »', source: 'Élysée · UNESCO · Metz', talence: ROSARY ? 'Chapelet presque chaque jour en octobre, et une veillée de prière et de consolation le ' + (VEILLEE ? '14 octobre.' : '18 novembre.') : VEILLEE2 ? 'Une veillée de prière et de consolation est proposée le 18 novembre.' : 'Des veillées de prière et de consolation sont proposées à la paroisse (voir l’agenda).' },
       { color: '#E08A00', title: 'Accueillir l’autre', text: 'Accueillir un migrant ne s’arrête pas au secours : c’est l’intégrer, lui permettre de déployer ses talents et d’entrer dans l’esprit de la maison.', quote: '« Accueillir une personne, c’est l’intégrer comme dans sa propre famille. »', source: 'Maison Bakhita · Metz', talence: 'Nouveau à Talence ou de passage ? L’accueil du presbytère et du pavillon de la Sainte-Famille vous reçoit chaque semaine. Vous êtes bienvenus aussi aux messes !' },
       { color: '#17A9A0', title: 'Les jeunes, Église d’aujourd’hui', text: 'Le Pape a dit sa joie devant l’enthousiasme des jeunes, et les a appelés à construire la paix, fonder une famille, s’engager pour le bien commun, sans peur de l’avenir.', quote: '« Vous êtes l’Église d’aujourd’hui. »', source: 'Stade de France · Concorde · Metz', talence: 'Aumônerie, scoutisme, étudiants et jeunes pros : il y a une place pour chacun.' },
       { color: '#2BA66B', title: 'Éduquer au sens', text: 'À l’heure de l’intelligence artificielle, l’éducation doit aider l’homme à « être » davantage et non seulement à « avoir » plus. Les enfants doivent être protégés dans le monde numérique.', quote: '« Aucune éducation n’est complète si elle ne parle pas de la question du sens. »', source: 'Discours à l’UNESCO · 25 septembre', talence: 'Éveil à la foi, catéchisme et parcours pour adultes sont proposés toute l’année.' },
@@ -637,15 +805,16 @@ class Component extends DCLogic {
     const K = { Lire: '#E5202A', 'Écouter': '#0096BE', Suivre: '#E08A00' };
     const X = (kind, name, href, desc) => ({ kind, name, href, desc, color: K[kind] });
     const MORE = [
-      [X("Lire", "Aleteia", "https://fr.aleteia.org/2026/09/29/ce-que-leon-xiv-a-voulu-dire-a-la-france/", "Ce que Léon XIV a voulu dire à la France : 15 citations marquantes."), X("Suivre", "Frère Paul-Adrien", "https://www.youtube.com/watch?v=zw7kPqzpM88", "Sa vidéo sur la venue du Pape en France."), X("Suivre", "Sœur Albertine", "https://www.youtube.com/results?search_query=s%C5%93ur%20Albertine%20Chemin%20Neuf", "Religieuse du Chemin Neuf, très suivie sur Instagram et TikTok.")],
+      [X("Suivre", "Amen Media", "https://www.youtube.com/watch?v=0cGBg5h_vLU", "Léon XIV en France : le best-of du voyage, en vidéo."), X("Suivre", "Frère Paul-Adrien", "https://www.youtube.com/watch?v=zw7kPqzpM88", "Sa vidéo sur la venue du Pape en France."), X("Suivre", "Sœur Albertine", "https://www.youtube.com/results?search_query=s%C5%93ur%20Albertine%20Chemin%20Neuf", "Religieuse du Chemin Neuf, très suivie sur Instagram et TikTok.")],
       [X("Lire", "Aleteia", "https://fr.aleteia.org/2026/09/30/pape-leon-nous-vous-attendions-le-message-des-plus-fragiles/", "« Pape Léon, nous vous attendions » : la rencontre avec les plus fragiles à Lourdes."), X("Lire", "Aleteia", "https://fr.aleteia.org/2026/09/27/messe-a-lourdes-le-texte-de-lhomelie-de-leon-xiv/", "L’homélie intégrale de la messe à Lourdes."), X("Suivre", "KTO", "https://www.ktotv.com/emissions/le-pape-leon-xiv-en-france", "En pèlerinage à Lourdes avec le Pape, et tous les replays du voyage.")],
       [X("Lire", "Vatican News", "https://www.vaticannews.va/fr/pape/news/2026-09/metz-pape-leon-xiv-europe-paix-robert-schumen-dignite-humaine.html", "À Metz, le Pape plaide pour une Europe de la paix."), X("Écouter", "RCF Jerico Moselle", "https://www.rcf.fr/actualite/le-pape-leon-xiv-a-metz-28-septembre-2026", "Léon XIV à Metz : le message de Robert Schuman au cœur du voyage."), X("Lire", "Aleteia", "https://fr.aleteia.org/2026/09/27/angelus-leon-xiv-lance-un-appel-pour-la-paix-depuis-lourdes/", "L’appel à prier le Rosaire en octobre pour que « cessent les guerres ».")],
       [X("Écouter", "RFI · Religions du monde", "https://podcasts.apple.com/cm/podcast/visite-du-pape-l%C3%A9on-xiv-en-france-quels-enjeux-pour/id1500236614?i=1000790744970", "Reportages en Seine-Saint-Denis et dans le 18e arrondissement de Paris."), X("Lire", "RCF", "https://www.rcf.fr/articles/vie-spirituelle/leon-xiv-en-france-que-retenir-de-ses-discours-et-homelies", "Léon XIV en France : que retenir de ses discours et homélies ?"), X("Écouter", "Le Monde · L’Heure du Monde", "https://podcasts.apple.com/us/podcast/le-pape-l%C3%A9on-xiv-en-france-les-enjeux-dune-visite-historique/id1704984604?i=1000791204734", "Les enjeux d’une visite historique, en 23 minutes.")],
       [X("Suivre", "KTO", "https://www.ktotv.com/video/00467818/le-pape-avec-les-jeunes-au-stade-de-france", "La veillée avec 80 000 jeunes au Stade de France, en replay."), X("Suivre", "Two Disciples", "https://www.instagram.com/two_disciples/", "Thibaut et Benoît, parmi les créateurs qui ont réuni 2 500 personnes à Saint-Sulpice la veille de l’arrivée du Pape."), X("Suivre", "Le Catho de service", "https://www.youtube.com/@lecathodeservice", "Victor Dubois de Montreynaud explique la foi en vidéos courtes."), X("Lire", "franceinfo", "https://www.franceinfo.fr/societe/religion/catholicisme/j-ai-entendu-parler-de-la-soiree-sur-instagram-les-influenceurs-catholiques-qui-attirent-les-jeunes-vers-la-religion_8209598.html", "Les influenceurs catholiques qui attirent les jeunes vers la foi.")],
-      [X("Suivre", "Conférence de presse", "https://www.youtube.com/watch?v=NPjbjBN5zlg", "Dans l’avion du retour : fin de vie, intelligence artificielle, paix."), X("Écouter", "RCF Notre Dame", "https://www.rcf.fr/vie-spirituelle/le-pape-leon-xiv-en-france", "Toutes les émissions spéciales du voyage, à réécouter."), X("Suivre", "Amen Media", "https://www.youtube.com/results?search_query=Amen%20Media", "Paul Delafosse décrypte l’actualité de l’Église en vidéo.")],
+      [X("Suivre", "Conférence de presse", "https://www.youtube.com/watch?v=NPjbjBN5zlg", "Dans l’avion du retour : fin de vie, intelligence artificielle, paix."), X("Écouter", "RCF Notre Dame", "https://www.rcf.fr/vie-spirituelle/le-pape-leon-xiv-en-france", "Toutes les émissions spéciales du voyage, à réécouter."), X("Suivre", "Amen Media", "https://www.youtube.com/@_amen_media", "Paul Delafosse décrypte l’actualité de l’Église en vidéo.")],
       [X("Lire", "Aleteia", "https://fr.aleteia.org/2026/09/30/leon-xiv-compare-sa-visite-en-france-a-une-renaissance/", "Léon XIV compare sa visite en France à une « renaissance »."), X("Suivre", "KTO", "https://www.ktotv.com/emissions/le-pape-leon-xiv-en-france", "Les très riches heures du Pape en France, avec le cardinal Aveline."), X("Suivre", "Padre Blog", "https://www.youtube.com/results?search_query=Padre%20Blog", "Des prêtres qui répondent aux questions de la foi, en vidéo.")]
     ];
-    T.forEach((t, i) => { t.more = MORE[i]; });
+    // Messages 01 et 04 renvoient vers l'accueil à l'église, les autres vers la vie de la paroisse.
+    T.forEach((t, i) => { t.more = MORE[i]; const accueil = i === 0 || i === 3; t.goTo = accueil ? () => this.setTab(1) : () => this.setTab(2); t.goLabel = accueil ? 'Venir à l’église →' : 'Découvrir la paroisse →'; });
     const wide = this.state.wide;
     const ti = this.state.theme;
     const themes = T.map((x, i) => ({
@@ -707,11 +876,14 @@ class Component extends DCLogic {
     ].filter(g => g.items.length);
     return {
       legalOpen: !!this.state.legal, openLegal: () => this.openLegal(), closeLegal: () => this.closeLegal(), stop: e => e.stopPropagation(),
-      isPape: tab === 0, isVie: tab === 1, wide,
+      isPape: tab === 0, isVie: tab === 1, isParoisse: tab === 2, wide,
       heroCols: wide ? 'minmax(0,1fr) minmax(0,1.25fr)' : 'minmax(0,1fr)', heroTextOrder: wide ? 0 : 1, heroImgOrder: wide ? 1 : 0,
       heroGap: wide ? '22px' : '16px', heroPad: wide ? '56px 44px' : '28px 22px 40px', heroImgBox: wide ? 'min-height:560px' : 'aspect-ratio:4/3', listMax: wide ? '420px' : '100%',
-      t0: tabStyle(0), t1: tabStyle(1),
-      goPape: () => this.setTab(0), goVie: () => this.setTab(1),
+      t0: tabStyle(0), t1: tabStyle(1), t2: tabStyle(2),
+      goPape: () => this.setTab(0), goVie: () => this.setTab(1), goParoisse: () => this.setTab(2),
+      jLaisse: jump('laisse'), jMaintenant: jump('maintenant'), jDiscours: jump('discours'),
+      jRencontrer: jump('rencontrer'), jHoraires: jump('horaires'), jPremiere: jump('premiere-fois'),
+      jAgenda: jump('agenda'), jChemins: jump('chemins'),
       highlights, days, moreOpen, moreExpanded: String(moreOpen), moreLabel: moreOpen ? 'Masquer les autres textes' : 'Voir les ' + rest.length + ' autres textes', toggleMore: () => this.setState({ moreOpen: !moreOpen }), speechCount: speeches.length + ' textes officiels, du 25 au 28 septembre 2026',
       themes, theme: { ...T[tI], num: String(tI + 1) },
       rosaryOn: ROSARY, schedTitle: 'Messes · Adoration · Confession · Chapelet',
