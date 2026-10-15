@@ -345,14 +345,21 @@ button{font:inherit}
 
       <section id="rencontrer" style="max-width:1120px;margin:0 auto;padding:48px 22px 0">
         <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A;margin-bottom:8px"><span style="width:28px;height:1px;background:#E5202A"></span><span>RENCONTRER QUELQU’UN</span></div>
+        <sc-if value="{{ vacShow }}" hint-placeholder-val="{{ true }}">
+        <div role="note" style="margin:6px 0 18px;max-width:760px;padding:16px 18px;border:1px solid #F6D9A8;border-left:4px solid #F9A21B;border-radius:14px;background:#FFF8EC;display:flex;flex-direction:column;gap:8px">
+          <span style="font-weight:400;font-size:16px;line-height:1.4;color:#13308A">{{ vacTitle }}</span>
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:15px;line-height:1.5;color:#3E4F7A"><li style="margin:0"><strong style="font-weight:400;color:#13308A">Presbytère</strong> : accueil uniquement le mardi, 10h – 12h, et le vendredi 30 octobre, 10h – 12h.</li><li style="margin:0"><strong style="font-weight:400;color:#13308A">Pavillon de la Sainte-Famille</strong> : pas d’accueil.</li><li style="margin:0"><strong style="font-weight:400;color:#13308A">Curé sans rendez-vous</strong> : pas de permanence le jeudi soir.</li><li style="margin:0">Un prêtre reste présent à la sortie des messes.</li></ul>
+          <span style="font-size:13px;line-height:1.4;color:#6B7697">Les horaires habituels reprennent le lundi 2 novembre.</span>
+        </div>
+        </sc-if>
         <div style="display:flex;flex-direction:column">
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:4px 24px;padding:18px 0;border-bottom:1px solid #ECEEF3">
             <span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:400;font-size:18px">Accueil au presbytère (derrière l’église Notre-Dame)</span><a href="https://maps.app.goo.gl/onskwCmSa7PQHe1DA" target="_blank" rel="noopener" style="font-size:14px;color:#0096BE">1 bis place de l’Église · Itinéraire ↗</a></span>
-            <span style="font-size:16px;line-height:1.55;color:#3E4F7A">Mardi au vendredi, 10h – 12h<br>Jeudi, 16h30 – 18h45<br><a href="tel:0556805432" style="color:#0096BE">05 56 80 54 32</a></span>
+            <span style="font-size:16px;line-height:1.55;color:#3E4F7A">Mardi au vendredi, 10h – 12h<br>Jeudi, 16h30 – 18h45<br><a href="tel:0556805432" style="color:#0096BE">05 56 80 54 32</a><sc-if value="{{ vacShow }}" hint-placeholder-val="{{ true }}"><span style="display:block;margin-top:6px;font-size:14px;line-height:1.45;font-weight:400;color:#B86E00">Vacances de la Toussaint : le mardi, 10h – 12h, et le vendredi 30 octobre, 10h – 12h.</span></sc-if></span>
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:4px 24px;padding:18px 0;border-bottom:1px solid #ECEEF3">
             <span style="display:flex;flex-direction:column;gap:2px"><span style="font-weight:400;font-size:18px">Accueil au Pavillon de la Sainte-Famille (à côté de la chapelle)</span><a href="https://www.google.com/maps/search/?api=1&amp;query=Chapelle%20de%20la%20Sainte-Famille%2C%2010%20rue%20Charles%20Gounod%2C%2033400%20Talence" target="_blank" rel="noopener" style="font-size:14px;color:#0096BE">10 rue Charles Gounod · Itinéraire ↗</a></span>
-            <span style="font-size:16px;line-height:1.55;color:#3E4F7A">Lundi au vendredi, 14h – 17h</span>
+            <span style="font-size:16px;line-height:1.55;color:#3E4F7A">Lundi au vendredi, 14h – 17h<sc-if value="{{ vacShow }}" hint-placeholder-val="{{ true }}"><span style="display:block;margin-top:6px;font-size:14px;line-height:1.45;font-weight:400;color:#B86E00">Vacances de la Toussaint : pas d’accueil.</span></sc-if></span>
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:4px 24px;padding:18px 0;border-bottom:1px solid #ECEEF3">
             <span style="font-weight:400;font-size:18px">Un prêtre à la sortie de chaque messe</span>
@@ -360,13 +367,20 @@ button{font:inherit}
           </div>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:4px 24px;padding:18px 0;border-bottom:1px solid #ECEEF3">
             <span style="font-weight:400;font-size:18px">Rencontrer le curé, sans rendez-vous</span>
-            <span style="font-size:16px;line-height:1.55;color:#3E4F7A">Jeudi, 17h30 – 18h45, au presbytère</span>
+            <span style="font-size:16px;line-height:1.55;color:#3E4F7A">Jeudi, 17h30 – 18h45, au presbytère<sc-if value="{{ vacShow }}" hint-placeholder-val="{{ true }}"><span style="display:block;margin-top:6px;font-size:14px;line-height:1.45;font-weight:400;color:#B86E00">Vacances de la Toussaint : pas de permanence.</span></sc-if></span>
           </div>
         </div>
       </section>
 
       <section id="horaires" style="max-width:1120px;margin:0 auto;padding:48px 22px 0">
         <div style="display:flex;align-items:center;gap:12px;font-weight:400;font-size:12px;letter-spacing:0.22em;text-transform:uppercase;color:#E5202A;margin-bottom:16px"><span style="width:28px;height:1px;background:#E5202A"></span><span>{{ schedTitle }}</span></div>
+        <sc-if value="{{ vacShow }}" hint-placeholder-val="{{ true }}">
+        <div role="note" style="margin:6px 0 18px;max-width:760px;padding:16px 18px;border:1px solid #F6D9A8;border-left:4px solid #F9A21B;border-radius:14px;background:#FFF8EC;display:flex;flex-direction:column;gap:8px">
+          <span style="font-weight:400;font-size:16px;line-height:1.4;color:#13308A">{{ vacTitle }}</span>
+          <ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:4px;font-size:15px;line-height:1.5;color:#3E4F7A"><li style="margin:0">Pas de messe le matin en semaine (mercredi 7h, jeudi 9h).</li><li style="margin:0">Pas de messe de 9h30 le dimanche à Notre-Dame.</li><li style="margin:0">Adoration du vendredi : de 14h à 19h.</li></ul>
+          <span style="font-size:13px;line-height:1.4;color:#6B7697">Les horaires habituels reprennent le lundi 2 novembre.</span>
+        </div>
+        </sc-if>
         <sc-if value="{{ rosaryOn }}" hint-placeholder-val="{{ true }}">
         <details style="margin-bottom:22px;max-width:760px;border:1px solid #ECEEF3;border-left:4px solid #2BA66B;border-radius:14px;background:#FAFAF8">
           <summary style="cursor:pointer;padding:18px 20px;font-size:18px;line-height:1.35;color:#13308A;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px"><span>En octobre, à l’appel du pape, prier Marie pour la paix.</span><span style="color:#2BA66B;font-size:24px;line-height:1">+</span></summary>
@@ -399,7 +413,7 @@ button{font:inherit}
               <span style="display:flex;align-items:center;gap:10px;font-weight:400;font-size:17px"><span style="width:7px;height:7px;border-radius:50%;background:{{ g.color }}"></span>{{ g.label }}</span>
               <div style="display:flex;flex-direction:column;gap:4px">
                 <sc-for list="{{ g.items }}" as="it" hint-placeholder-count="2">
-                  <span style="display:grid;grid-template-columns:128px minmax(0,1fr);column-gap:12px;font-size:16px;line-height:1.5;color:#3E4F7A"><span style="color:#13308A;font-weight:400;white-space:nowrap">{{ it.time }}</span><a href="{{ it.map }}" target="_blank" rel="noopener" style="color:#3E4F7A;text-decoration:underline;text-decoration-color:#D5DAE6;text-underline-offset:3px">{{ it.place }}</a></span>
+                  <span style="display:grid;grid-template-columns:128px minmax(0,1fr);column-gap:12px;font-size:16px;line-height:1.5;color:#3E4F7A"><span style="color:#13308A;font-weight:400;white-space:nowrap;text-decoration:{{ it.deco }};opacity:{{ it.op }}">{{ it.time }}</span><span style="display:flex;flex-direction:column"><a href="{{ it.map }}" target="_blank" rel="noopener" style="color:#3E4F7A;text-decoration:underline;text-decoration-color:#D5DAE6;text-underline-offset:3px;opacity:{{ it.op }}">{{ it.place }}</a><sc-if value="{{ it.hasNote }}" hint-placeholder-val="{{ false }}"><span style="margin-top:6px;font-size:14px;line-height:1.45;font-weight:400;color:#B86E00">{{ it.note }}</span></sc-if></span></span>
                 </sc-for>
               </div>
             </div>
@@ -754,6 +768,10 @@ class Component extends DCLogic {
     // L'encadré de l'appel du pape et la phrase du message 03 ne sont affichés que jusqu'au 31 octobre 2026 inclus ; le chapelet reste au calendrier.
     const ROSARY = new Date() <= new Date(2026, 9, 31, 23, 59, 59);
     // La veillée du 14 octobre n'est annoncée que jusqu'à cette date incluse (message 03).
+    // Vacances de la Toussaint : du samedi 17 octobre au dimanche 1er novembre 2026 inclus.
+    // Avant : annonce ; pendant : horaires barrés + horaires de vacances ; après le 1er novembre : tout redevient normal.
+    const VAC_START = new Date(2026, 9, 17), VAC_END = new Date(2026, 10, 1, 23, 59, 59), NOW = new Date();
+    const VAC_NOW = NOW >= VAC_START && NOW <= VAC_END, VAC_SHOW = NOW <= VAC_END;
     const VEILLEE = new Date() <= new Date(2026, 9, 14, 23, 59, 59);
     // Ensuite, la veillée suivante (18 novembre) est annoncée jusqu'à sa date incluse.
     const VEILLEE2 = new Date() <= new Date(2026, 10, 18, 23, 59, 59);
@@ -855,29 +873,35 @@ class Component extends DCLogic {
     const tI = ti >= 0 ? ti : 0;
     const ND = 'Église Notre-Dame', SF = 'Chapelle Sainte-Famille', HV = ' (hors vacances)';
     const MAPS = { nd: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Église Notre-Dame, Place de l\'Église, 33400 Talence'), sf: 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent('Chapelle de la Sainte-Famille, 10 rue Charles Gounod, 33400 Talence') };
-    const M = (time, place) => ({ time, place, map: place.startsWith(SF) ? MAPS.sf : MAPS.nd });
+    const M = (time, place, vac) => ({ time, place, vac, map: place.startsWith(SF) ? MAPS.sf : MAPS.nd });
+    const OFF = { off: true }, ADO_VAC = { alt: '14h – 19h' };
     // Le chapelet médité du samedi 17 octobre 2026 n'est affiché que jusqu'à cette date incluse, puis disparaît.
     const SAT17 = new Date() <= new Date(2026, 9, 17, 23, 59, 59);
     const SCHED = [
       { name: 'Lundi', short: 'Lun', ros: [M('18h00', ND)] },
       { name: 'Mardi', short: 'Mar', messe: [M('19h00', ND)], ado: [M('18h – 19h', ND)], conf: [M('18h – 19h', ND)] },
-      { name: 'Mercredi', short: 'Mer', messe: [M('7h00', ND + HV), M('19h00', SF)], ado: [M('18h – 19h', SF)], conf: [M('18h – 19h', SF)], ros: [M('8h30 – 11h00', ND)] },
-      { name: 'Jeudi', short: 'Jeu', messe: [M('9h00', ND + HV), M('19h00', ND)], ado: [M('18h – 19h', ND)], conf: [M('18h – 19h', ND)], ros: [M('17h00', ND)] },
-      { name: 'Vendredi', short: 'Ven', messe: [M('19h00', ND)], ado: [M('8h – 19h', ND)], conf: [M('18h – 19h', ND)] },
+      { name: 'Mercredi', short: 'Mer', messe: [M('7h00', ND + HV, OFF), M('19h00', SF)], ado: [M('18h – 19h', SF)], conf: [M('18h – 19h', SF)], ros: [M('8h30 – 11h00', ND)] },
+      { name: 'Jeudi', short: 'Jeu', messe: [M('9h00', ND + HV, OFF), M('19h00', ND)], ado: [M('18h – 19h', ND)], conf: [M('18h – 19h', ND)], ros: [M('17h00', ND)] },
+      { name: 'Vendredi', short: 'Ven', messe: [M('19h00', ND)], ado: [M('8h – 19h', ND, ADO_VAC)], conf: [M('18h – 19h', ND)] },
       { name: 'Samedi', short: 'Sam', messe: [M('11h30', ND)], dom: [M('18h00', ND + ', messe anticipée')], ado: [M('10h30 – 11h30', ND)], conf: [M('10h30 – 11h30', ND)], ros: SAT17 ? [M('15h30', SF + ', samedi 17 octobre (rosaire médité)')] : [] },
-      { name: 'Dimanche', short: 'Dim', dom: [M('9h30', ND + HV), M('10h30', SF), M('11h00', ND), M('19h00', ND + ', messe des jeunes (18-35 ans)')], ado: [M('18h15 – 18h45', ND)], conf: [M('18h15 – 18h45', ND)], ros: [M('14h00', ND)] },
+      { name: 'Dimanche', short: 'Dim', dom: [M('9h30', ND + HV, OFF), M('10h30', SF), M('11h00', ND), M('19h00', ND + ', messe des jeunes (18-35 ans)')], ado: [M('18h15 – 18h45', ND)], conf: [M('18h15 – 18h45', ND)], ros: [M('14h00', ND)] },
     ];
     const todayIdx = (new Date().getDay() + 6) % 7;
     const di = this.state.day ?? todayIdx;
     const week = SCHED.map((d, i) => ({ short: d.short, name: d.name, pressed: String(di === i), onClick: () => this.setState({ day: i, dayDir: i >= di ? 'fwd' : 'back', dayTick: (this.state.dayTick || 0) + 1 }), bg: di === i ? '#13308A' : '#fff', fg: di === i ? '#fff' : '#13308A', border: di === i ? '#13308A' : '#E3E7EF', dot: i === todayIdx ? '#F9A21B' : 'transparent' }));
     const D = SCHED[di];
+    const vacItem = it => {
+      const v = VAC_SHOW && it.vac, when = VAC_NOW ? 'Vacances, jusqu’au 1er novembre' : 'Vacances, du 17 octobre au 1er novembre';
+      const note = !v ? '' : v.off ? when + ' : pas de messe.' : when + ' : ' + v.alt + '.';
+      return { ...it, note, hasNote: !!note, deco: v && VAC_NOW ? 'line-through' : 'none', op: v && VAC_NOW ? '0.55' : '1' };
+    };
     const daySlots = [
       { label: 'Messe', color: '#13308A', items: D.messe || [] },
       { label: 'Messe dominicale', color: '#0096BE', items: D.dom || [] },
       { label: 'Adoration', color: '#F9A21B', items: D.ado || [] },
       { label: 'Confession', color: '#E5202A', items: D.conf || [] },
       { label: 'Chapelet', color: '#2BA66B', items: D.ros || [] },
-    ].filter(g => g.items.length);
+    ].filter(g => g.items.length).map(g => ({ ...g, items: g.items.map(vacItem) }));
     return {
       legalOpen: !!this.state.legal, openLegal: () => this.openLegal(), closeLegal: () => this.closeLegal(), stop: e => e.stopPropagation(),
       isPape: tab === 0, isVie: tab === 1, isParoisse: tab === 2, wide,
@@ -890,6 +914,7 @@ class Component extends DCLogic {
       jAgenda: jump('agenda'), jChemins: jump('chemins'),
       highlights, days, moreOpen, moreExpanded: String(moreOpen), moreLabel: moreOpen ? 'Masquer les autres textes' : 'Voir les ' + rest.length + ' autres textes', toggleMore: () => this.setState({ moreOpen: !moreOpen }), speechCount: speeches.length + ' textes officiels, du 25 au 28 septembre 2026',
       themes, theme: { ...T[tI], num: String(tI + 1) },
+      vacShow: VAC_SHOW, vacTitle: VAC_NOW ? 'Vacances de la Toussaint : horaires modifiés jusqu’au dimanche 1er novembre' : 'Vacances de la Toussaint, du samedi 17 octobre au dimanche 1er novembre : horaires modifiés',
       rosaryOn: ROSARY, schedTitle: 'Messes · Adoration · Confession · Chapelet',
       week, dayCls: 'dc-day-' + (this.state.dayDir || 'fwd') + '-' + ((this.state.dayTick || 0) % 2), swapCls: 'dc-swap-' + ((this.state.nodeTick || 0) % 2), daySlots, noSlots: daySlots.length === 0, dayName: D.name, todayTag: di === todayIdx ? '· aujourd’hui' : '',
       n0: mk(0), n1: mk(1), n2: mk(2), n3: mk(3), n4: mk(4), branch: branches[node],
